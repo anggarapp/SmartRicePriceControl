@@ -1,6 +1,6 @@
 import h5py
 import gcsfs
-import numpy
+import os
 from sklearn.preprocessing import MinMaxScaler
 from tensorflow import keras
 from flask import Flask, request, jsonify
@@ -66,4 +66,4 @@ def predict():
     return json_results
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port='8080',debug=True)
+    app.run(host='0.0.0.0',port=int(os.environ.get("PORT", 8080)),debug=True)
