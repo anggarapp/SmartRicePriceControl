@@ -39,7 +39,18 @@ def predict():
         data2 = float(request.args.get('param2'))
         data3 = float(request.args.get('param3'))
         data4 = float(request.args.get('param4'))
-        data = [[data1, data2, data3, data4]]
+        data5 = float(request.args.get('param5'))
+        data6 = float(request.args.get('param6'))
+        data7 = float(request.args.get('param7'))
+        data8 = float(request.args.get('param8'))
+        data9 = float(request.args.get('param9'))
+        data10 = float(request.args.get('param10'))
+        data11 = float(request.args.get('param11'))
+        data12 = float(request.args.get('param12'))
+        data13 = float(request.args.get('param13'))
+        data14 = float(request.args.get('param14'))
+        data = [[data1, data2, data3, data4, data5, data6, data7,
+                 data8, data9, data10, data11, data12, data13, data14]]
     except:
         data = [[]]
     results = {
@@ -48,7 +59,7 @@ def predict():
     print(data)
 
     # checking input
-    if len(data[0]) != 4:
+    if len(data[0]) != 14:
         return jsonify(results)
     for nilai in data[0]:
         if str(type(nilai)) != "<class 'float'>":
