@@ -15,19 +15,21 @@
 
 import h5py
 import gcsfs
+import os
 from sklearn.preprocessing import MinMaxScaler
 from tensorflow import keras
 from flask import Flask, request, jsonify
 
 
-model_location = 'gs://rice_price_dev/ml_models/test_model_r5.h5'
-input_fit_data = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                  [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9]]  # need to change this
-output_fit_data = [[1637.76], [115862.16]]
+model_location = 'gs://rice_price_dev/ml_models/test_model_r2.h5'
+input_fit_data = [[26.49, 26.49, 26.49, 26.49, 67, 67, 67, 67, 0, 0, 0, 0, 3.27, 333],
+                  [30.25, 30.25, 30.25, 30.25, 85.45, 85.45, 85.45, 85.45, 18.84, 18.84, 18.84, 21.84, 9.47, 29694]]  # need to change this
+output_fit_data = [[1194.46], [103583.39]]
 input_scaler = MinMaxScaler()
 output_scaler = MinMaxScaler()
 input_scaler.fit(input_fit_data)
 output_scaler.fit(output_fit_data)
+
 
 app = Flask(__name__)
 
@@ -83,4 +85,4 @@ def predict():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='8080', debug=True)
+    app.run(host='0.0.0.0', debug=True, port=int(os.environ.get("PORT", 8080)))

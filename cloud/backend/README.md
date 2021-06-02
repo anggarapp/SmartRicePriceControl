@@ -30,3 +30,21 @@ pip install requirement.txt
 ```
 nohup python {$your-directory}/SmartRicePriceControl/cloud/backend/main.py &
 ```
+
+## Deploy on GCR (Google Cloud Run)
+### 1. Submit Docker Image
+```
+gcloud builds submit --tag gcr.io/{PROJECT-NAME}/{SERVICE-NAME} --project={PROJECT-NAME}
+```
+#### example
+```
+gcloud builds submit --tag gcr.io/alert-district-312603/backend-beta --project=alert-district-312603
+```
+### 2. Deploy Submited Docker Image
+```
+gcloud run deploy --image {IMAGE-LOCATION} --platform managed --project={PROJECT-NAME}
+```
+#### example
+```
+gcloud run deploy --image gcr.io/alert-district-312603/backend-beta --platform managed --project=alert-district-312603
+```
