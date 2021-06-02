@@ -48,7 +48,7 @@ def predict():
     with FS.open(model_location, 'rb') as model_file:
         model_gcs = h5py.File(model_file, 'r')
         test_Model = keras.models.load_model(model_gcs)
-    ##
+
     input_data = input_scaler.transform(data)
     raw_prediction = test_Model.predict(input_data)
     prediction = output_scaler.inverse_transform(raw_prediction)
