@@ -32,7 +32,11 @@ nohup python {$your-directory}/SmartRicePriceControl/cloud/backend/main.py &
 ```
 
 ## Deploy on GCR (Google Cloud Run)
+<<<<<<< HEAD
 ### Submit Docker Image
+=======
+### 1. Submit Docker Image
+>>>>>>> main
 ```
 gcloud builds submit --tag gcr.io/{PROJECT-NAME}/{SERVICE-NAME} --project={PROJECT-NAME}
 ```
@@ -40,7 +44,11 @@ gcloud builds submit --tag gcr.io/{PROJECT-NAME}/{SERVICE-NAME} --project={PROJE
 ```
 gcloud builds submit --tag gcr.io/alert-district-312603/backend-beta --project=alert-district-312603
 ```
+<<<<<<< HEAD
 ### Deploy Submited Docker Image
+=======
+### 2. Deploy Submited Docker Image
+>>>>>>> main
 ```
 gcloud run deploy --image {IMAGE-LOCATION} --platform managed --project={PROJECT-NAME}
 ```

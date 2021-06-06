@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.u1.capstoneproject">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,8 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneProject">
-        <activity android:name=".ui.MainActivity"></activity>
-        <activity android:name=".ui.SplashActivity">
+        <activity android:name=".ui.home.MainPremiumActivity"></activity>
+        <activity android:name=".ui.prediction_calc.CalculationActivity" />
+        <activity android:name=".ui.about.AboutActivity" />
+        <activity android:name=".ui.splash.OnBoardingActivity" />
+        <activity android:name=".ui.setup_location.LocationSetupActivity" />
+        <activity android:name=".ui.prediction_res.ResultActivity" />
+        <activity android:name=".ui.home.MainActivity" />
+        <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
